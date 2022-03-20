@@ -1,0 +1,74 @@
+datasource postgres {
+  provider = "postgresql"
+  url      = env("POSTGRESQL_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  createdAt DateTime @default(now())
+  firstName String?
+  id        String   @id @default(cuid())
+  lastName  String?
+  password  String
+  roles     String[]
+  updatedAt DateTime @updatedAt
+  username  String   @unique
+}
+
+model Admin {
+  createdAt  DateTime @default(now())
+  email      String?  @unique
+  id         String   @id @default(cuid())
+  name       String
+  superAdmin Boolean
+  updatedAt  DateTime @updatedAt
+}
+
+model Product {
+  brand       Brand    @relation(fields: [brandId], references: [id])
+  brandId     String
+  categories  String?
+  createdAt   DateTime @default(now())
+  description String
+  id          String   @id @default(cuid())
+  name        String
+  updatedAt   DateTime @updatedAt
+}
+
+model Category {
+  banner      String
+  createdAt   DateTime         @default(now())
+  description String
+  id          String           @id @default(cuid())
+  name        String
+  parent      ParentCategory[]
+  slug        String           @unique
+  thumb       String
+  updatedAt   DateTime         @updatedAt
+}
+
+model ParentCategory {
+  banner      String
+  childrens   Category[]
+  createdAt   DateTime   @default(now())
+  description String
+  id          String     @id @default(cuid())
+  name        String
+  thumb       String
+  updatedAt   DateTime   @updatedAt
+}
+
+model Brand {
+  banner      String
+  createdAt   DateTime  @default(now())
+  description String
+  id          String    @id @default(cuid())
+  name        String
+  products    Product[]
+  slug        String    @unique
+  thumb       String?
+  updatedAt   DateTime  @updatedAt
+}
