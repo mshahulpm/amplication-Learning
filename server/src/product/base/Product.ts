@@ -12,7 +12,13 @@ https://docs.amplication.com/docs/how-to/custom-code
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
 import { Brand } from "../../brand/base/Brand";
-import { ValidateNested, IsString, IsOptional, IsDate } from "class-validator";
+import {
+  ValidateNested,
+  IsString,
+  IsOptional,
+  IsDate,
+  IsNumber,
+} from "class-validator";
 import { Type } from "class-transformer";
 @ObjectType()
 class Product {
@@ -52,6 +58,17 @@ class Product {
   description!: string;
 
   @ApiProperty({
+    required: false,
+    type: Number,
+  })
+  @IsNumber()
+  @IsOptional()
+  @Field(() => Number, {
+    nullable: true,
+  })
+  discount!: number | null;
+
+  @ApiProperty({
     required: true,
     type: String,
   })
@@ -66,6 +83,14 @@ class Product {
   @IsString()
   @Field(() => String)
   name!: string;
+
+  @ApiProperty({
+    required: true,
+    type: Number,
+  })
+  @IsNumber()
+  @Field(() => Number)
+  price!: number;
 
   @ApiProperty({
     required: true,
