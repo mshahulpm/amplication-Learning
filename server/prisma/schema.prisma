@@ -33,8 +33,10 @@ model Product {
   categories  String?
   createdAt   DateTime @default(now())
   description String
+  discount    Float?
   id          String   @id @default(cuid())
   name        String
+  price       Float
   updatedAt   DateTime @updatedAt
 }
 

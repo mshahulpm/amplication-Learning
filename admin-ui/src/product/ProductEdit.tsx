@@ -1,4 +1,5 @@
 import * as React from "react";
+
 import {
   Edit,
   SimpleForm,
@@ -6,7 +7,9 @@ import {
   ReferenceInput,
   SelectInput,
   TextInput,
+  NumberInput,
 } from "react-admin";
+
 import { BrandTitle } from "../brand/BrandTitle";
 
 export const ProductEdit = (props: EditProps): React.ReactElement => {
@@ -18,7 +21,9 @@ export const ProductEdit = (props: EditProps): React.ReactElement => {
         </ReferenceInput>
         <TextInput label="categories" source="categories" />
         <TextInput label="description" multiline source="description" />
+        <NumberInput label="discount" source="discount" />
         <TextInput label="name" source="name" />
+        <NumberInput label="price" source="price" />
       </SimpleForm>
     </Edit>
   );

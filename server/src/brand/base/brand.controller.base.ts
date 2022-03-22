@@ -314,8 +314,10 @@ export class BrandControllerBase {
         categories: true,
         createdAt: true,
         description: true,
+        discount: true,
         id: true,
         name: true,
+        price: true,
         updatedAt: true,
       },
     });

@@ -14,7 +14,9 @@ import { ApiProperty } from "@nestjs/swagger";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { Type } from "class-transformer";
 import { IsOptional } from "class-validator";
+import { FloatNullableFilter } from "../../util/FloatNullableFilter";
 import { StringFilter } from "../../util/StringFilter";
+import { FloatFilter } from "../../util/FloatFilter";
 @InputType()
 class ProductWhereInput {
   @ApiProperty({
@@ -27,6 +29,17 @@ class ProductWhereInput {
     nullable: true,
   })
   categories?: StringNullableFilter;
+
+  @ApiProperty({
+    required: false,
+    type: FloatNullableFilter,
+  })
+  @Type(() => FloatNullableFilter)
+  @IsOptional()
+  @Field(() => FloatNullableFilter, {
+    nullable: true,
+  })
+  discount?: FloatNullableFilter;
 
   @ApiProperty({
     required: false,
@@ -49,5 +62,16 @@ class ProductWhereInput {
     nullable: true,
   })
   name?: StringFilter;
+
+  @ApiProperty({
+    required: false,
+    type: FloatFilter,
+  })
+  @Type(() => FloatFilter)
+  @IsOptional()
+  @Field(() => FloatFilter, {
+    nullable: true,
+  })
+  price?: FloatFilter;
 }
 export { ProductWhereInput };

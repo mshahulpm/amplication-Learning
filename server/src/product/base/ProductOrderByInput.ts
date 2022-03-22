@@ -61,6 +61,15 @@ class ProductOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
+  discount?: SortOrder;
+
+  @ApiProperty({
+    required: false,
+    enum: ["asc", "desc"],
+  })
+  @Field(() => SortOrder, {
+    nullable: true,
+  })
   id?: SortOrder;
 
   @ApiProperty({
@@ -71,6 +80,15 @@ class ProductOrderByInput {
     nullable: true,
   })
   name?: SortOrder;
+
+  @ApiProperty({
+    required: false,
+    enum: ["asc", "desc"],
+  })
+  @Field(() => SortOrder, {
+    nullable: true,
+  })
+  price?: SortOrder;
 
   @ApiProperty({
     required: false,

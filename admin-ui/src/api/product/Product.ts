@@ -5,7 +5,9 @@ export type Product = {
   categories: string | null;
   createdAt: Date;
   description: string;
+  discount: number | null;
   id: string;
   name: string;
+  price: number;
   updatedAt: Date;
 };

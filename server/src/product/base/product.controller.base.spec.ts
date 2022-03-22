@@ -14,16 +14,20 @@ const CREATE_INPUT = {
   categories: "exampleCategories",
   createdAt: new Date(),
   description: "exampleDescription",
+  discount: 42.42,
   id: "exampleId",
   name: "exampleName",
+  price: 42.42,
   updatedAt: new Date(),
 };
 const CREATE_RESULT = {
   categories: "exampleCategories",
   createdAt: new Date(),
   description: "exampleDescription",
+  discount: 42.42,
   id: "exampleId",
   name: "exampleName",
+  price: 42.42,
   updatedAt: new Date(),
 };
 const FIND_MANY_RESULT = [
@@ -31,8 +35,10 @@ const FIND_MANY_RESULT = [
     categories: "exampleCategories",
     createdAt: new Date(),
     description: "exampleDescription",
+    discount: 42.42,
     id: "exampleId",
     name: "exampleName",
+    price: 42.42,
     updatedAt: new Date(),
   },
 ];
@@ -40,8 +46,10 @@ const FIND_ONE_RESULT = {
   categories: "exampleCategories",
   createdAt: new Date(),
   description: "exampleDescription",
+  discount: 42.42,
   id: "exampleId",
   name: "exampleName",
+  price: 42.42,
   updatedAt: new Date(),
 };
 
